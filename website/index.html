@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Signal.Me Video Player</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="lib/canvas.text.js"></script>
+	<script type="text/javascript" src="lib/gentilis-normal-normal.js"></script>
+	<script type="text/javascript" src="lib/jquery-1.10.2.min.js"></script>
+	<script src="lib/jquery-modal-master/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" href="lib/jquery-modal-master/jquery.modal.css" type="text/css" media="screen" />
+	<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+	<script type="text/javascript" src="lib/dollar.js"></script>
+	<script type="text/javascript" src="lib/jGrowl-master/jquery.jgrowl.js"></script>
+	<link rel="stylesheet" type="text/css" href="lib/jGrowl-master/jquery.jgrowl.css">
+	<script type="text/javascript" src="lib/vegas/jquery.vegas.js"></script>
+	<link rel="stylesheet" type="text/css" href="lib/vegas/jquery.vegas.css" />
+	<script type="text/javascript" src="lib/main.js"></script>
+</head>
+<body>
+
+	<h3 id="title">SIGNAL.ME</h3><br>
+	<span id="subtitle"><center>THE GESTURE-BASED VIDEO PLAYER</center></span>
+	<div id="info">
+		<a href="#tutorial" id="help" rel="modal:open">Help</a>
+		<a href="#dialog" id="contact" rel="modal:open">Contact</a>
+	</div>
+	<hr><center>There are no traditional controls on this player; instead, you can use gestures to control the video player using the canvas on the right. For help, click the help button on the top-right!</center>
+	<hr>
+	<div id="wrapper">
+	 	<div id="video">
+	 		<video id="player" preload="none" poster="http://media.w3.org/2010/05/sintel/poster.png" loop="true">
+		      <source id="mp4" src="videos/trailer.mp4" type="video/mp4">
+		      <source id="webm" src="videos/trailer.webm" type="video/webm">
+		      <source id="ogv" src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg">
+		      <p>Your user agent does not support the HTML5 Video element.</p>
+		    </video>
+	 	</div>
+		
+		<div id="controls">
+			<br>
+			<div id="canvas">
+				<canvas id="myCanvas" width="370" height="350" style="background-color:#000000" onmousedown="mouseDownEvent(event.clientX, event.clientY)" onmousemove="mouseMoveEvent(event.clientX, event.clientY)" onmouseup="mouseUpEvent(event.clientX, event.clientY)" oncontextmenu="return false;">
+								<span style="background-color:#ffff88;">The &lt;canvas&gt; element is not supported by this browser.</span>
+							</canvas>
+			</div>
+			<div id="icon_gestures">
+				<div id="firstrow">
+					<img id="play" class="icon" src="img/play_pause.png" title="Play/Pause">
+					<img id="seekf" class="icon" src="img/seek_front.png" title="Seek Forward">
+					<img id="seekb" class="icon" src="img/seek_back.png" title="Seek Backward">				
+					<img id="vup" class="icon" src="img/vol_up.png" title="Volume Up">
+					<img id="vdown" class="icon" src="img/vol_down.png" title="Volume Down">
+				</div>
+				<br>				
+				<div id="secondrow">
+					<img id="mute" class="icon" src="img/mute.png" title="Mute/UnMute">
+					<img id="size" class="icon" src="img/size.png" title="Change Video Size">
+					<img id="ff" class="icon" src="img/ff.png" title="Increase Playback Speed">
+					<img id="slow" class="icon" src="img/slow.png" title="Decrease Playback Speed">
+				</div>
+			</div>
+			<div id="gifs">
+				<img id="play" src="gifs/play_pause.gif" title="Play/Pause">
+				<img id="seekf" src="gifs/seek_front.gif" title="Seek Forward">
+				<img id="seekb" src="gifs/seek_back.gif" title="Seek Backward">				
+				<img id="vup" src="gifs/vol_up.gif" title="Volume Up">
+				<img id="vdown" src="gifs/vol_down.gif" title="Volume Down">
+				<img id="ff" src="gifs/ff.gif" title="Increase Playback Speed">
+				<img id="slow" src="gifs/slow.gif" title="Decrease Playback Speed">
+				<img id="mute" src="gifs/mute.gif" title="Mute/UnMute">
+				<img id="size" src="gifs/size.gif" title="Change Video Size">
+			</div>
+		</div>
+	</div>
+
+	<div id="dialog" class="modal">
+	  <p><center>
+	  	<h3 id="tutTitle">Darshana Umakanth</h3><hr>
+	  	Graduate Student at Columbia University<br>
+	  	Computer Science Department<br>
+	  	darsh14 at gmail dot com
+	  </center></p>
+	</div>
+
+	<div id="tutorial" class="modal">
+		<center>
+			<h3 id="tutTitle">Welcome to Signal.Me - a gesture-based video player!</h3><hr>
+			<p>
+				There are no traditional controls on this player;
+				<br>
+				Instead, you can use gestures to control the video player using the canvas on the right.
+				<br>
+				<br>
+				<hr>
+				<a href="#step1" id="next" rel="modal:open">Next</a>
+			</p>
+		</center>
+	</div>
+
+	<div id="step1" class="modal">
+		<p>
+			<h3 id="tutTitle">Step 1</h3><hr>
+			To start, hover over the different pictures below the canvas to see what they do and to see an example of how to draw the gesture.
+			<br>
+			<br>
+			<img src="img/demo1.gif" width="900" height="400px" style="border-radius:10px"/>
+			<br>
+			<br>
+			<hr>
+			<a href="#tutorial" id="back" rel="modal:open">Back</a>
+			<a href="#step2" id="next" rel="modal:open">Next</a>
+		</p>
+	</div>
+
+	<div id="step2" class="modal">
+		<p>
+			<h3 id="tutTitle">Step 2</h3><hr>
+			Next, try a gesture on the black canvas on the right!<br>
+			You'll see a bubble on the top-right that indicates the action you've just performed.
+			<br>
+			<br>
+			<img src="img/demo2.gif" width="900" height="400px" style="border-radius:10px"/>
+			<br>
+			<br>
+			<hr>
+			<a href="#step1" id="back" rel="modal:open">Back</a>
+			<a href="#step3" id="next" rel="modal:open">Next</a>
+		</p>
+	</div>
+
+	<div id="step3" class="modal">
+		<p>
+			<h3 id="tutTitle">Step 3</h3><hr>
+			That's all, folks! 
+			<br>
+			<br>
+			If you run into any trouble, click the 'Help' button on the top-right to re-open this tutorial. <br>
+			Also feel free to shoot me an email with your feedback by clicking 'Contact'<br>
+			Thanks again for visiting Signal.Me!
+			<br>
+			<br>
+			<hr>
+			<a href="#step2" id="back" rel="modal:open">Back</a>
+		</p>
+	</div>
+
+</body>
+</html>
